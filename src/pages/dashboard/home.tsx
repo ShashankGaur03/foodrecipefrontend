@@ -56,15 +56,6 @@ export const Home = ()=>{
                                 />
                             ))}
                         </div>
-                        <div className="flex flex-wrap gap-3 flex-col items-center justify-center md:justify-start md:items-start md:flex-row w-full">
-                            {state.map((recipe: IRECIPERESPONSE, index: number) => (
-                                <RecipeCard
-                                    key={index + recipe._id}
-                                    {...recipe}
-                                    user={recipe?.user?.email as string}
-                                />
-                            ))}
-                        </div>
                         </>
                     ) : (<><NoRecipe /></>)}
                 </>

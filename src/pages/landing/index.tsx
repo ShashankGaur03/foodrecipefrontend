@@ -38,7 +38,7 @@ export const Landing = ()=>{
                 >
                     <div className="flex flex-col gap-2 w-full md:w-[50%]">
                         <h2 className="text-orange-500 font-extrabold text-xl underline underline-offset-4">
-                            Recipe Nest
+                            Recipes Nest
                         </h2>
                         <Input name="email" placeholder="Email" handleChange={handleState} type="text" disabled={loading}
                         className="bg-zinc-900 py-1 px-4 w-full shadow-xl placeholder:text-sm hover:bg-zinc-800 cursor-pointer focus:outline-none"/>
