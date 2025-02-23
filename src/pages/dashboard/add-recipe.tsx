@@ -5,7 +5,7 @@ import { IRECIPE } from "../../@types/index";
 import { Form, Input, TextArea, Button } from "../../components/index";
 import { ImageUploader } from "./common/index";
 import { validateImageType } from "../../utils/index";
-import cogoToast from "cogo-toast";
+import { toast } from 'react-toastify';
 
 export const AddRecipe = ()=>{
     const navigate = useNavigate();
@@ -22,11 +22,14 @@ export const AddRecipe = ()=>{
         e.preventDefault();
         if(!image){
             console.log("Please add an image");
+            toast("Please add an image");
             return;
             // return cogoToast.error("Please add an image");
         }
+        console.log(image)
         if(!state?.title || !state?.description || !state?.ingredients){
-            console.log("Please fill the missing field");
+            console.log("Please fill the missing fields");
+            toast("Please fill in the missing fields");
             return;
             // return cogoToast.error("Please fill the missing field");
         }
@@ -52,7 +55,7 @@ export const AddRecipe = ()=>{
         e.stopPropagation();
         let imageFile = e.dataTransfer.files[0];
         if(!validateImageType(imageFile)){
-            return cogoToast.warn("File type is wrong: ;" + imageFile.type);
+            return toast("File type is wrong: ;" + imageFile.type);
         }
         setImage(imageFile);
     }
@@ -61,7 +64,7 @@ export const AddRecipe = ()=>{
         if(!event.currentTarget.files) return;
         const imageFile = event.currentTarget.files[0];
         if(!validateImageType(imageFile)){
-            return cogoToast.warn("File type is wrong: " + imageFile.type);
+            return toast("File type is wrong: " + imageFile.type);
         }
         setImage(imageFile);
     }
@@ -106,7 +109,7 @@ export const AddRecipe = ()=>{
                     />
                     <TextArea
                         disabled={loading}
-                        name="notes"
+                        name="note"
                         placeholder="Notes"
                         onChange={onChange}
                         rows={4}

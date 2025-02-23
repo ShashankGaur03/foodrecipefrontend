@@ -1,6 +1,6 @@
 import { useState, FormEvent, Suspense, useContext } from "react";
 import useSWR from "swr";
-import cogoToast from "cogo-toast";
+import { toast } from 'react-toastify';
 
 import { RecipeCard, SearchBox } from "../../components/index";
 import { instance } from "../../config/index";
@@ -26,7 +26,7 @@ export const MyRecipes = () => {
 
   if (error) {
     console.log(error);
-    cogoToast.error(error?.response?.data?.error);
+    toast(error?.response?.data?.error);
     return null;
   }
 

@@ -1,4 +1,4 @@
-import cogoToast from "cogo-toast";
+import { toast } from 'react-toastify';
 import { Suspense } from "react";
 import { useParams } from "react-router-dom";
 import { Card } from "../../components";
@@ -18,7 +18,7 @@ export const More = () => {
 
   if (error) {
     console.log(error);
-    cogoToast.error(error?.response?.data?.error);
+    toast(error?.response?.data?.error);
     return null;
   }
 

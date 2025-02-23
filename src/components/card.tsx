@@ -46,16 +46,16 @@ export const Card = ({id, avatar, image, description, title, email, ingredients,
                 ${isFull? "md:h-[20rem]" : "md:h-[14rem]"} object-cover`}
             />
             <div className={`p-2 bg-zinc-900 w-full ${isFull? "md:w-full" : "md:w-[14rem]"}
-            h-[15rem] overflow-clip my-3`}>
+            h-[20rem] overflow-clip my-3`}>
                 <div className="flex gap-4 items-start w-full">
                     <img
                         className="h-12 w-12 object-cover rounded-full"
                         src={avatar}
                         alt="A picture of user"
                     />
-                    <div className="text-left">
-                        <p className="text-orange-500 font-light">{email}</p>
-                    </div>
+                </div>
+                <div className="text-left">
+                    <p className="text-orange-500 font-light">{email}</p>
                 </div>
                 <h2 className={`text-orange-500 font-bold my-2 text-xl
                     ${!isFull && "truncate overflow-hidden ..."}`}

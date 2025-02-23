@@ -23,7 +23,16 @@ export const useRecipe = ()=>{
     }
 
     const addRecipe = async (payload: IRECIPEPAYLOAD): Promise<void>=>{
+        console.log("Payload is:");
+        console.log(payload);
+
         const {note, ...rest} = payload;
+
+        console.log("Note is:");
+        console.log(note);
+        console.log("Rest is:");
+        console.log(rest);
+
         const formData = new FormData();
         const payloadToArray = Object.keys(rest);
 

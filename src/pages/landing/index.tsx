@@ -6,7 +6,7 @@ import { Button } from '../../components/button';
 import { AUTH_TYPE, IPAYLOAD } from '../../@types/index';
 import { validateEmail } from '../../utils/index';
 import { AuthenticationContext } from '../../context/index';
-import cogoToast from 'cogo-toast';
+import { toast } from 'react-toastify';
 
 export const Landing = ()=>{
     const {loading, onLogin} = useContext(AuthenticationContext) as AUTH_TYPE;
@@ -15,10 +15,10 @@ export const Landing = ()=>{
     const handleSubmit = async (e: FormEvent<HTMLFormElement>)=>{
         e.preventDefault();
         if(!validateEmail(state?.email)){
-            return cogoToast.error("Invalid email.");
+            return toast("Invalid email.");
         }
         if(!state?.password || state.password?.length < 7){
-            return cogoToast.error("Please provide password");
+            return toast("Please provide password");
         }
         const response = await onLogin(state);
         console.log(response);
@@ -31,7 +31,7 @@ export const Landing = ()=>{
 
     return (
         <div className="container bg-black text-white h-[100%] flex flex-col-reverse md:flex-row w-full">
-            <div className="w-full h-full">
+            <div className="w-[50vw] h-full">
                 <Form
                 className='flex items-center justify-center w-full h-full p-10'
                 onSubmit={handleSubmit}
@@ -53,7 +53,7 @@ export const Landing = ()=>{
                     </div>
                 </Form>
             </div>
-            <div className="w-full h-full">
+            <div className="w-[50vw] h-full">
                 <img src={recipeOne} alt='image' className='w-full h-full object-center object-cover' />
             </div>
         </div>

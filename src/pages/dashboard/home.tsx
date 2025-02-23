@@ -5,7 +5,7 @@ import { NoRecipe } from "./common/index";
 import { IRECIPERESPONSE } from "../../@types/index";
 import { useRecipe } from "../../hooks/index";
 import { instance } from "../../config/index";
-import cogoToast from "cogo-toast";
+import { toast } from 'react-toastify';
 import { SearchLoader, UILoader } from "../../components/loaders/index";
 
 export const Home = ()=>{
@@ -17,7 +17,7 @@ export const Home = ()=>{
 
     if(error){
         console.log(error);
-        cogoToast.error(error?.response?.data?.error);
+        toast(error?.response?.data?.error);
         return null;
     }
 
